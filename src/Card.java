@@ -31,17 +31,24 @@ public class Card {
 
 
     public static void Print(Card c) {
-        System.out.println("******* CARD 1 *******");
+
         System.out.println(c.rank + " of " + c.suit);
         System.out.println(Card.RANKS[c.rank] + " of " + Card.SUITS[c.suit]);
         System.out.println(Card.RANKS[c.rank] + " of " + Card.SUITS_unicode[c.suit]);
     }
-    public static Card getInstance(int queen, int spades) {
-        Card c1 = new Card();
-        c1.rank = queen;
-        c1.suit = spades;
-        return c1;
+    public static Card getInstance(int rank, int suit) {
+        Card c = new Card();
+        c.rank = rank;
+        c.suit = suit;
+        return c;
     }
+    public static Card getInstance() {
+        Card c = new Card();
+        c.suit = (int) (Math.random() * 4 );  // Färg
+        c.rank = (int) (Math.random() * 13) + 1;  // Valör
+        return c;
+    }
+
 
 
 }
